@@ -21,12 +21,25 @@ body{
 
     /*spacing variables*/
     --space-xs: 4px;
-    --space-s: 8px;
-    --sapce-md: 16px;
+    --space-sm: 8px;
+    --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 32px;
     --space-2xl: 40px;
-    --sapce-3xl: 48px;
+    --space-3xl: 48px;
+
+
+    /*Border colors*/
+    --border-primiary-color: #333333;
+
+    /*Border radius*/
+    --border-xs: 4px;
+    --border-sm: 8px;
+    --border-md: 12px;
+    --border-lg: 16px;
+    --border-xl: 20px;
+    --border-2xl: 24px;
+
 }
 
 
@@ -45,7 +58,7 @@ section{
 }
 
 section{
-    padding: var(--space-s);
+    padding: var(--space-2xl);
 }
 
 section .infos{
@@ -53,4 +66,9 @@ section .infos{
     display: flex;
     justify-content: space-between;
     
+}
+
+.info{
+    padding: var(--space-sm) var(--sapce-md);
+    border: 1px solid var(--border-primiary-color)
 }
