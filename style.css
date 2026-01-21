@@ -62,7 +62,7 @@ section{
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: rgb(29, 61, 88);
+    gap: var(--space-lg)
 }
 
 section .infos{
@@ -82,4 +82,15 @@ section .infos{
 .board{
     border:1px solid var(--border-primiary-color);
     flex-grow: 1;
+    display: grid;
+    
+    
+}
+
+.block{
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-primiary-color);
+   
+    
 }
