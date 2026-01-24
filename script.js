@@ -11,3 +11,6 @@ for(let i =0; i<rows * cols;i++){
     block.classList.add("block")
     board.appendChild(block);
 }
+
+
+// Testing git commit.
