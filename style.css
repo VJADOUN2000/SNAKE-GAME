@@ -14,6 +14,7 @@ body{
 :root{
     /*Background-color*/
     --bg-primary-color: #141414;
+    --bg-fill-color: #f3ecec;
 
     /*Text color*/
     --text-primary-color: #e7e7e7;
@@ -94,6 +95,10 @@ section .infos{
     border: 1px solid var(--border-primiary-color);
    
     
+}
+
+.fill{
+    background-color: var(--bg-fill-color);
 }
 
 
