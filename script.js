@@ -15,6 +15,9 @@ const snake = [{
     x:2,y:6
 }]
 
+let direction = "up"
+
+
 for(let row =0;row<rows;row++){
     for (let col =0;col<cols;col++){
         const block = document.createElement('div')
@@ -28,7 +31,7 @@ for(let row =0;row<rows;row++){
 
 function render(){
     snake.forEach(segment=>{
-        console.log(blocks[`${segment.x}-${segment.y}`])
+        blocks[`${segment.x}-${segment.y}`].classList.add("fill")
     })
 }
 // Testing git commit.
