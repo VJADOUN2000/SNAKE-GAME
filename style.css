@@ -99,6 +99,7 @@ section .infos{
 
 .fill{
     background-color: var(--bg-fill-color);
+    color: black;
 }
 
 

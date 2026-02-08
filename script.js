@@ -7,15 +7,12 @@ const rows = Math.floor(board.clientHeight / blockHeight);
 
 
 const blocks =[];
-const snake = [{
+const snake = [
+    {
     x:2,y:4
-},{
-    x:2,y:5
-},{
-    x:2,y:6
 }]
 
-let direction = "up"
+let direction = "right";
 
 
 for(let row =0;row<rows;row++){
@@ -34,4 +31,22 @@ function render(){
         blocks[`${segment.x}-${segment.y}`].classList.add("fill")
     })
 }
-// Testing git commit.
+
+setInterval(()=>{
+    let head = null;
+
+    if(direction==="left"){
+        head ={x:snake[0].x,y:snake[0].y-1}
+    } else if(direction ==="right"){
+        head ={x:snake[0].x,y:snake[0].y+1}
+    }
+
+    snake.forEach(segment=>{
+        blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
+    })
+
+    snake.unshift(head);
+    snake.pop();
+
+    render()
+},400)
