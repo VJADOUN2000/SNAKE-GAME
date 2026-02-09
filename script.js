@@ -12,7 +12,7 @@ const snake = [
     x:2,y:4
 }]
 
-let direction = "right";
+let direction = "down";
 
 
 for(let row =0;row<rows;row++){
@@ -39,6 +39,10 @@ setInterval(()=>{
         head ={x:snake[0].x,y:snake[0].y-1}
     } else if(direction ==="right"){
         head ={x:snake[0].x,y:snake[0].y+1}
+    } else if(direction === "down"){
+        head ={x:snake[0].x+1,y:snake[0].y}
+    } else if(direction ==="up"){
+        head ={x:snake[0].x-1,y:snake[0].y}
     }
 
     snake.forEach(segment=>{
