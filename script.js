@@ -46,7 +46,7 @@ function render(){
             clearInterval(intervalId)
         }
 
-        if(head.x==food.x & head.y==food.y){
+        if(head.x==food.x && head.y==food.y){
             blocks[`${food.x}-${food.y}`].classList.remove("food")
             food = {
                 x: Math.floor(Math.random() *rows),y: Math.floor(Math.random() *cols)
@@ -68,10 +68,10 @@ function render(){
     })
 }
 
-intervalId= setInterval(()=>{
-        render()
+// intervalId= setInterval(()=>{
+//         render()
 
-},300)
+// },300)
 
 addEventListener("keydown", (event) => {
     if(event.key == "ArrowUp"){
