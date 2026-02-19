@@ -3,7 +3,7 @@ const startButton = document.querySelector(".btn-start");
 const modal = document.querySelector(".modal");
 const startGameModal =document.querySelector(".start-game")
 const gameOverModal = document.querySelector(".game-over")
-const restartButton =direction.querySelector("btn-restart")
+const restartButton =document.querySelector(".btn-restart")
 
 const blockHeight =50;
 const blockWidth = 50;
@@ -48,7 +48,7 @@ function render(){
         head ={x:snake[0].x-1,y:snake[0].y}
     }
         if(head.x<0 || head.x>=rows || head.y<0 || head.y >=cols){
-            alert("Game Over!")
+           // alert("Game Over!")
             clearInterval(intervalId)
 
             modal.style.display ="flex";
@@ -90,14 +90,21 @@ startButton.addEventListener("click",()=>{
     
 })
 
-restartButton,addEventListener("click",restartGame)
+restartButton.addEventListener("click",restartGame)
 
 
 function restartGame(){
 
+    blocks[`${food.x}-${food.y}` ].classList.remove("food")
+    snake.forEach(segment=>{
+        blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
+    })
+
+
     modal.style.display ="none";
     snake = [{x:1,y: 3}]
     food = {x: Math.floor(Math.random() *rows),y: Math.floor(Math.random() *cols)}
+    direction ="down"
     intervalId =setInterval(()=>{render()},300)
 }
 
