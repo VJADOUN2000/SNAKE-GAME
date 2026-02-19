@@ -5,8 +5,17 @@ const startGameModal =document.querySelector(".start-game")
 const gameOverModal = document.querySelector(".game-over")
 const restartButton =document.querySelector(".btn-restart")
 
+const highScoreElement= document.querySelector("#high-score");
+const scoreElemnt = document.querySelector("#score");
+const timeElement = document.querySelector("#Time")
+
 const blockHeight =50;
 const blockWidth = 50;
+
+let highScore = 0;
+let score =0;
+let Time = `00:00` 
+
 
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
