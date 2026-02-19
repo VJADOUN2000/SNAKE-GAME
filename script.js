@@ -56,6 +56,8 @@ function render(){
     } else if(direction ==="up"){
         head ={x:snake[0].x-1,y:snake[0].y}
     }
+
+        // wall collision Logic
         if(head.x<0 || head.x>=rows || head.y<0 || head.y >=cols){
            // alert("Game Over!")
             clearInterval(intervalId)
@@ -66,6 +68,7 @@ function render(){
             return;
         }
 
+        // food consume logic
         if(head.x==food.x && head.y==food.y){
             blocks[`${food.x}-${food.y}`].classList.remove("food")
             food = {
@@ -74,6 +77,9 @@ function render(){
             blocks[`${food.x}-${food.y}`].classList.add("food")
 
             snake.unshift(head);
+
+            score +=10
+            scoreElemnt.innerHTML =score;
         }
 
     snake.forEach(segment=>{
