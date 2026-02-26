@@ -80,6 +80,11 @@ function render(){
 
             score +=10
             scoreElemnt.innerHTML =score;
+
+            if(score>highScore){
+                highScore =score;
+                localStorage.setItem('highScore', highScore.toString())
+            }
         }
 
     snake.forEach(segment=>{
@@ -114,6 +119,9 @@ function restartGame(){
     snake.forEach(segment=>{
         blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
     })
+
+    score =0;
+    Time =`00-00`
 
 
     modal.style.display ="none";
