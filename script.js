@@ -12,14 +12,17 @@ const timeElement = document.querySelector("#Time")
 const blockHeight =50;
 const blockWidth = 50;
 
-let highScore = 0;
+let highScore = localStorage.getItem("highScore") || 0;
 let score =0;
-let Time = `00:00` 
+let Time = `00-00` 
+
+highScoreElement.innerHTML =highScore;
 
 
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
 let intervalId =null;
+let timerIntervalId = null;
 let food = {x: Math.floor(Math.random() *rows),y: Math.floor(Math.random() *cols)}
 
 const blocks =[];
@@ -99,14 +102,24 @@ function render(){
     })
 }
 
-// intervalId= setInterval(()=>{
-//         render()
-
-// },300)
 
 startButton.addEventListener("click",()=>{
     modal.style.display ="none"
     intervalId =setInterval(()=>{render()},300)
+    timerIntervalId = setInterval(()=>{
+        let [min, sec] =Time.split("-").map(Number)
+
+        if(sec==59){
+            min+=1;
+            sec =0;
+        }
+        else{
+            sec+=1;
+        }
+
+        Time =`${min}-${sec}`
+        timeElement.innerHTML = Time
+    },1000)
     
 })
 
@@ -120,8 +133,12 @@ function restartGame(){
         blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
     })
 
-    score =0;
-    Time =`00-00`
+    score = 0;
+    Timeime =`00-00`
+
+    scoreElemnt.innerHTML =score;
+    timeElement.innerHTML = Time;
+    highScore.innerHTML = highScore;
 
 
     modal.style.display ="none";
